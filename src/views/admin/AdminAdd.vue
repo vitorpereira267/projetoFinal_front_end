@@ -1,5 +1,5 @@
 <template>
-  <div style="background: indianred; height: 860px">
+  <div style="background: indianred; height: 1200px;">
     <div class="tags">
       <a href="http://localhost:8080/adminget">Get</a>
       <a href="http://localhost:8080/adminadd">Add</a>
@@ -8,21 +8,24 @@
     </div>
     <div class="box">
       <form method="post" @submit.prevent="submit">
+        <div >
         <div class="insert-info">
           <h2>Game:</h2>
           <input
-            class="space"
-            style="margin: 0 30px"
+            class=""
+            
             type="game"
             required
             v-model="gameName"
           />
         </div>
+        
+        
         <div class="insert-info">
           <h2>Pegi:</h2>
           <input
             class="space"
-            style="margin: 0 35px"
+            
             type="pegi"
             required
             v-model="pegi"
@@ -32,7 +35,7 @@
           <h2>Price:</h2>
           <input
             class="space"
-            style="margin: 0 40px"
+            
             type="preco"
             required
             v-model="preco"
@@ -42,7 +45,7 @@
           <h2>Stock:</h2>
           <input
             class="space"
-            style="margin: 0 88px"
+            
             type="stock"
             required
             v-model="stock"
@@ -52,7 +55,7 @@
           <h2>Description:</h2>
           <input
             class="space"
-            style="margin: 0 46px"
+            
             type="description"
             required
             v-model="description"
@@ -61,9 +64,10 @@
         <div class="insert-info">
           <h2>Minimum Required:</h2>
           <input
+            style="height: 130px"
             type="minimum_Requirement"
             class="space"
-            style="margin: 0 55px"
+            
             required
             v-model="minimum_Requirement"
           />
@@ -71,9 +75,10 @@
         <div class="insert-info">
           <h2>Recommended Requirement:</h2>
           <input
+            style="height: 130px"
             type="recommended_Requirement"
             class="space"
-            style="margin: 0 55px"
+            
             required
             v-model="recommended_Requirement"
           />
@@ -83,7 +88,6 @@
           <input
             type="date"
             class="space"
-            style="margin: 0 55px"
             required
             v-model="releaseDate"
           />
@@ -93,13 +97,16 @@
           <input
             type="text"
             class="space"
-            style="margin: 0 55px"
+            
             required
             v-model="image"
           />
         </div>
-
-        <input type="submit" value="Submit" />
+</div>
+<div style="display: flex; justify-content: center;">
+<input type="submit" value="Submit" />
+</div>
+        
       </form>
     </div>
   </div>
@@ -123,7 +130,7 @@ export default {
   methods: {
     submit() {
       axios
-        .post("http://localhost:3000/person", {
+        .post("http://localhost:3000/api/game", {
           gameName: this.gameName,
           pegi: this.pegi,
           preco: this.preco,
@@ -132,7 +139,7 @@ export default {
           minimum_Requirement: this.minimum_Requirement,
           releaseDate: this.releaseDate,
           image: this.image,
-          returnSecureToken: true,
+          
         })
         .then((res) => {
           console.log(res);
@@ -149,6 +156,9 @@ export default {
 </script>
 
 <style scoped>
+input{
+  width: 100%;
+}
 a {
   margin: 10px;
   text-decoration: none;
@@ -156,7 +166,9 @@ a {
   font-size: 30px;
 }
 h2 {
-  font-size: 23px;
+  font-size: 18px;
+  display: flex;
+  width: 200px;
 }
 .tags {
   height: 100px;
@@ -170,7 +182,7 @@ h2 {
   display: flex;
   flex-direction: column;
   background-color: lightgray;
-  margin: 30px 700px;
+  margin: 30px 400px;
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
