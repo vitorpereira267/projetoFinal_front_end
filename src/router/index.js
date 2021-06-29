@@ -8,7 +8,10 @@ import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import Erro from '../views/Error.vue'
 import Contacts from '../views/Contacts.vue'
-
+import Adminadd from '../views/admin/AdminAdd.vue'
+import Adminget from '../views/admin/AdminGet.vue'
+import Admindelete from '../views/admin/AdminDelete.vue'
+import Adminupdate from '../views/admin/AdminUpdate.vue'
 
 Vue.use(VueRouter)
 
@@ -21,6 +24,22 @@ const routes = [
   {
     path: '/games',
     component: Games
+  },
+  {
+    path: '/adminadd',
+    component: Adminadd
+  },
+  {
+    path: '/adminget',
+    component: Adminget
+  },
+  {
+    path: '/admindelete',
+    component: Admindelete
+  },
+  {
+    path: '/adminupdate',
+    component: Adminupdate
   },
   {
     path: '/contacts',

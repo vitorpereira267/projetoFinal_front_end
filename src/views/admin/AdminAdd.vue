@@ -1,0 +1,163 @@
+<template>
+  <div style="background: indianred; height: 860px">
+    <div class="tags">
+      <a href="http://localhost:8080/adminget">Get</a>
+      <a href="http://localhost:8080/adminadd">Add</a>
+      <a href="http://localhost:8080/admindelete">Delete</a>
+      <a href="http://localhost:8080/adminupdate">Update</a>
+    </div>
+    <div class="box">
+      <form method="post" @submit.prevent="submit">
+        <div class="insert-info">
+          <h2>Fisrt Name:</h2>
+          <input
+            class="space"
+            style="margin: 0 30px"
+            type="firstname"
+            required
+            v-model="firstname"
+          />
+        </div>
+        <div class="insert-info">
+          <h2>Last Name:</h2>
+          <input
+            class="space"
+            style="margin: 0 35px"
+            type="lastname"
+            required
+            v-model="lastname"
+          />
+        </div>
+        <div class="insert-info">
+          <h2>Username:</h2>
+          <input
+            class="space"
+            style="margin: 0 40px"
+            type="username"
+            required
+            v-model="userName"
+          />
+        </div>
+        <div class="insert-info">
+          <h2>Email:</h2>
+          <input
+            class="space"
+            style="margin: 0 88px"
+            type="email"
+            required
+            v-model="email"
+          />
+        </div>
+        <div class="insert-info">
+          <h2>Password:</h2>
+          <input
+            class="space"
+            style="margin: 0 46px"
+            type="password"
+            required
+            v-model="password"
+          />
+        </div>
+        <div class="insert-info">
+          <h2>Birthday:</h2>
+          <input
+            type="date"
+            class="space"
+            style="margin: 0 55px"
+            required
+            v-model="birthDate"
+          />
+        </div>
+
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+  </div>
+</template>
+<script>
+import axios from "axios";
+export default {
+  data() {
+    return {
+      email: "",
+      password: "",
+      firstname: "",
+      lastname: "",
+      userName: "",
+      birthDate: "",
+    };
+  },
+  methods: {
+    submit() {
+      axios
+        .post("http://localhost:3000/person", {
+          email: this.email,
+          password: this.password,
+          firstname: this.firstname,
+          lastname: this.lastname,
+          userName: this.userName,
+          birthDate: this.birthDate,
+          returnSecureToken: true,
+        })
+        .then((res) => {
+          console.log(res);
+          alert("User added with success");
+          this.$router.push("/adminadd");
+        })
+        .catch((res) => {
+          alert("Error adding the user");
+          console.log(res);
+        });
+    },
+  },
+};
+</script>
+
+<style scoped>
+a {
+  margin: 10px;
+  text-decoration: none;
+  color: black;
+  font-size: 30px;
+}
+h2 {
+  font-size: 23px;
+}
+.tags {
+  height: 100px;
+  display: flex;
+  padding: 0 330px;
+  justify-content: center;
+  align-items: center;
+}
+.box {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  background-color: lightgray;
+  margin: 30px 700px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  background: linear-gradient(#e66465, #9198e5);
+  color: #190202;
+}
+.insert-info {
+  display: flex;
+  padding: 10px;
+}
+
+input[type="submit"] {
+  width: 320px;
+  height: 50px;
+  border: 1px solid;
+  background: #2691d9;
+  border-radius: 25px;
+  font-size: 18px;
+  color: #e9f4fb;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+  margin: 50px;
+}
+</style>

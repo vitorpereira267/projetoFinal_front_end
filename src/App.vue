@@ -84,7 +84,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background:black;
+  background:#164756;;
   text-align: center;
   color: black;
   /* background-image:  url("https://i.pinimg.com/originals/f6/20/a1/f620a179ca1acfd15a0754701677fb58.jpg"); */

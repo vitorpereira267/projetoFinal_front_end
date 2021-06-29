@@ -4,7 +4,7 @@
       <div>
         <img
           class="platform-logo"
-          style="height: 30px"
+          style="height: 30px; width: 55px;"
           src="https://logosmarcas.net/wp-content/uploads/2020/11/Steam-Logo.png"
           alt=""
         /><a href="">STEAM</a>
@@ -12,7 +12,7 @@
       <div>
         <img
           class="platform-logo"
-          style="height: 30px; margin: 0 10px"
+          style="height: 30px; margin: 0 10px; width: 33px;"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Ubisoft_logo.svg/655px-Ubisoft_logo.svg.png"
           alt=""
         /><a href="">UPLAY</a>
@@ -20,7 +20,7 @@
       <div>
         <img
           class="platform-logo"
-          style="height: 30px; border-radius: 100%; margin: 0 10px"
+          style="height: 30px; border-radius: 100%; margin: 0 10px; width: 23px;"
           src="https://seeklogo.com/images/O/origin-logo-BF01A5BFBA-seeklogo.com.png"
           alt=""
         /><a href="">ORIGIN</a>
@@ -55,7 +55,7 @@
         <div class="swap">
           <a class="button-wishlist"></a>
           
-          <a class="button-buybutton" href="/personagens" onclick="alert()">Buy</a>
+          <a class="button-buybutton" href="/games" onclick="alert()">Buy</a>
         </div>
       </div>
       <br />
@@ -116,20 +116,17 @@ function alert() {
 
 
 <style scoped>
+a{
+  text-decoration: none;
+    color: white;
+}
 .header {
   display: flex;
   justify-content: space-around;
   background: #004351;
   padding: 25px 600px;
 }
-#img {
-  width: 100%;
-  height: 250px;
-  width: 250px;
-  transition: 0.5s ease;
-  backface-visibility: hidden;
-  cursor: pointer;
-}
+
 h1 {
   color: #000;
   font-size: 21px;
@@ -242,12 +239,13 @@ p {
 
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    justify-content: center;
 }
 
 .price {
   font-size: 39px;
   line-height: 34px;
-  margin-left: 5px;
+  margin-left: 325px;
   margin-top: 0;
   color: #fff;
 
@@ -257,12 +255,11 @@ p {
 .button-buybutton {
   font-size: 19px;
   padding: 19px 0;
-  width: 100%;
+  width: 300px;
   background: #ff5400;
   color: #fff;
   text-decoration: none;
   border-radius: 8px;
-  margin: 0 70px;
   cursor: pointer;
 }
 
@@ -281,10 +278,11 @@ p {
 .swap {
   display: flex;
   width: 100%;
+      justify-content: flex-end;
 }
 
 img {
-  border-radius: 8px;
+  
   width: 100%;
   height: 250px;
   width: 250px;

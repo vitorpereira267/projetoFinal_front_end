@@ -91,7 +91,9 @@
         </div>
       </div>
     </div>
+    
   </div>
+  
 </template>
 
 <script>
@@ -190,15 +192,6 @@ p {
   width: 245px;
 }
 
-
-#img {
-  width: 100%;
-  height: 250px;
-  width: 250px;
-  transition: 0.5s ease;
-  backface-visibility: hidden;
-  cursor: pointer;
-}
 .header {
   display: flex;
   justify-content: space-around;
