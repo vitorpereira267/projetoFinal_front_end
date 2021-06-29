@@ -12,19 +12,28 @@
 
           
         <div class="insert-info">
-          <h2>Fisrt Name: {{ data.firstname }}</h2>
+          <h2>Game: {{ data.gameName }}</h2>
         </div>
         <div class="insert-info">
-          <h2>Last Name: {{ data.lastname }}</h2>
+          <h2>Pegi: {{ data.pegi }}</h2>
         </div>
         <div class="insert-info">
-          <h2>Username: {{ data.userName }}</h2>
+          <h2>Price: {{ data.preco }}</h2>
         </div>
         <div class="insert-info">
-          <h2>Email: {{ data.email }}</h2>
+          <h2>Stock: {{ data.stock }}</h2>
         </div>
         <div class="insert-info">
-          <h2>Password: {{ data.password }}</h2>
+          <h2>Description: {{ data.description }}</h2>
+        </div>
+        <div class="insert-info">
+          <h2>Minimum Required: {{ data.minimum_Requirement }}</h2>
+        </div>
+        <div class="insert-info">
+          <h2>Recommended Requirement: {{ data.recommended_Requirement }}</h2>
+        </div>
+        <div class="insert-info">
+          <h2>Image: {{ data.image }}</h2>
         </div>
         </div>
       </div>
@@ -43,7 +52,7 @@ export default {
   //https://finalspaceapi.com/api/v0/character
   methods: {
     carregaInfo() {
-      axios.get("http://localhost:3000/person").then((res) => {
+      axios.get("http://localhost:3000/api/game").then((res) => {
         this.resultados = res.data;
         console.log(this.resultados);
       });
@@ -62,7 +71,11 @@ a {
   font-size: 30px;
 }
 h2 {
-  font-size: 23px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #777;
+    font-size: 13px;
 }
 .tags {
   height: 100px;

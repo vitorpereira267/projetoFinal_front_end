@@ -112,7 +112,6 @@ p {
   background: linear-gradient(to bottom, #004351 0px, transparent 150px),
     url(https://s3.gaming-cdn.com/images/products/6690/background/6690.jpg)
       center 0px no-repeat #004351;
-  
 }
 .box {
   display: flex;

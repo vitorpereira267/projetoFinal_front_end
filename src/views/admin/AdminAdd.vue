@@ -9,63 +9,93 @@
     <div class="box">
       <form method="post" @submit.prevent="submit">
         <div class="insert-info">
-          <h2>Fisrt Name:</h2>
+          <h2>Game:</h2>
           <input
             class="space"
             style="margin: 0 30px"
-            type="firstname"
+            type="game"
             required
-            v-model="firstname"
+            v-model="gameName"
           />
         </div>
         <div class="insert-info">
-          <h2>Last Name:</h2>
+          <h2>Pegi:</h2>
           <input
             class="space"
             style="margin: 0 35px"
-            type="lastname"
+            type="pegi"
             required
-            v-model="lastname"
+            v-model="pegi"
           />
         </div>
         <div class="insert-info">
-          <h2>Username:</h2>
+          <h2>Price:</h2>
           <input
             class="space"
             style="margin: 0 40px"
-            type="username"
+            type="preco"
             required
-            v-model="userName"
+            v-model="preco"
           />
         </div>
         <div class="insert-info">
-          <h2>Email:</h2>
+          <h2>Stock:</h2>
           <input
             class="space"
             style="margin: 0 88px"
-            type="email"
+            type="stock"
             required
-            v-model="email"
+            v-model="stock"
           />
         </div>
         <div class="insert-info">
-          <h2>Password:</h2>
+          <h2>Description:</h2>
           <input
             class="space"
             style="margin: 0 46px"
-            type="password"
+            type="description"
             required
-            v-model="password"
+            v-model="description"
           />
         </div>
         <div class="insert-info">
-          <h2>Birthday:</h2>
+          <h2>Minimum Required:</h2>
+          <input
+            type="minimum_Requirement"
+            class="space"
+            style="margin: 0 55px"
+            required
+            v-model="minimum_Requirement"
+          />
+        </div>
+        <div class="insert-info">
+          <h2>Recommended Requirement:</h2>
+          <input
+            type="recommended_Requirement"
+            class="space"
+            style="margin: 0 55px"
+            required
+            v-model="recommended_Requirement"
+          />
+        </div>
+        <div class="insert-info">
+          <h2>Release Date:</h2>
           <input
             type="date"
             class="space"
             style="margin: 0 55px"
             required
-            v-model="birthDate"
+            v-model="releaseDate"
+          />
+        </div>
+        <div class="insert-info">
+          <h2>Image:</h2>
+          <input
+            type="text"
+            class="space"
+            style="margin: 0 55px"
+            required
+            v-model="image"
           />
         </div>
 
@@ -79,24 +109,29 @@ import axios from "axios";
 export default {
   data() {
     return {
-      email: "",
-      password: "",
-      firstname: "",
-      lastname: "",
-      userName: "",
-      birthDate: "",
+      gameName: "",
+      pegi: "",
+      preco: "",
+      stock: "",
+      description: "",
+      minimum_Requirement: "",
+      recommended_Requirement: "",
+      releaseDate: "",
+      image: "",
     };
   },
   methods: {
     submit() {
       axios
         .post("http://localhost:3000/person", {
-          email: this.email,
-          password: this.password,
-          firstname: this.firstname,
-          lastname: this.lastname,
-          userName: this.userName,
-          birthDate: this.birthDate,
+          gameName: this.gameName,
+          pegi: this.pegi,
+          preco: this.preco,
+          stock: this.stock,
+          description: this.description,
+          minimum_Requirement: this.minimum_Requirement,
+          releaseDate: this.releaseDate,
+          image: this.image,
           returnSecureToken: true,
         })
         .then((res) => {

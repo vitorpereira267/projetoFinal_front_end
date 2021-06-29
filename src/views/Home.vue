@@ -66,7 +66,7 @@ export default {
 
 <style>
 .home{
-    padding: 50px 270px;
+    padding: 30px 300px;
     background: linear-gradient( #3f87a6, #ebf8e1, #f69d3c);
     height: 100%;
 }

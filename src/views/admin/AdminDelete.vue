@@ -1,5 +1,5 @@
 <template>
-  <div  style="background: indianred;; height: 860px;" >
+  <div style="background: indianred; height: 860px">
     <div class="tags">
       <a href="http://localhost:8080/adminget">Get</a>
       <a href="http://localhost:8080/adminadd">Add</a>
@@ -7,20 +7,20 @@
       <a href="http://localhost:8080/adminupdate">Update</a>
     </div>
     <div class="box">
-        <form method="delete" @submit.prevent="submit">
-      <div class="insert-info">
-        <h2>Insert ID: </h2>
-        <input
-          class="space"
-          style="margin: 0 30px"
-          type="game_ID"
-          required
-          v-model="users_ID"
-        />
-      </div>
-      
-      <input type="submit" value="Delete" />
-        </form>
+      <form method="delete" @submit.prevent="submit">
+        <div class="insert-info">
+          <h2>Insert ID:</h2>
+          <input
+            class="space"
+            style="margin: 0 30px"
+            type="game_ID"
+            required
+            v-model="users_ID"
+          />
+        </div>
+
+        <input type="submit" value="Delete" />
+      </form>
     </div>
   </div>
 </template>
@@ -30,19 +30,15 @@ export default {
   data() {
     return {
       users_ID: "",
-      
     };
   },
 
-    methods: {
+  methods: {
     submit() {
       axios
-        .delete(
-          "http://localhost:3000/person",
-          {
-            users_ID: this.users_ID,
-          }
-        )
+        .delete("http://localhost:3000/person", {
+          users_ID: this.users_ID,
+        })
         .then((res) => {
           console.log(res);
           alert("User deleted with success");
@@ -54,7 +50,7 @@ export default {
         });
     },
   },
-}
+};
 </script>
 
 <style scoped>
@@ -68,7 +64,6 @@ h2 {
   font-size: 23px;
 }
 .tags {
-
   height: 100px;
   display: flex;
   padding: 0 330px;
@@ -84,8 +79,8 @@ h2 {
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
-        background: linear-gradient(#e66465, #9198e5);
-    color: #190202;
+  background: linear-gradient(#e66465, #9198e5);
+  color: #190202;
 }
 .insert-info {
   display: flex;
@@ -93,16 +88,16 @@ h2 {
 }
 
 input[type="submit"] {
-    width: 320px;
-    height: 50px;
-    border: 1px solid;
-    background: #2691d9;
-    border-radius: 25px;
-    font-size: 18px;
-    color: #e9f4fb;
-    font-weight: 700;
-    cursor: pointer;
-    outline: none;
-    margin: 50px;
+  width: 320px;
+  height: 50px;
+  border: 1px solid;
+  background: #2691d9;
+  border-radius: 25px;
+  font-size: 18px;
+  color: #e9f4fb;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+  margin: 50px;
 }
 </style>
