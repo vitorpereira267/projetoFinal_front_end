@@ -6,7 +6,7 @@ import Game from '../views/Game.vue'
 import Favoritos from '../views/Favoritos.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
-import Erro from '../views/Error.vue'
+import error from '../views/Error.vue'
 import Contacts from '../views/Contacts.vue'
 import Adminadd from '../views/admin/AdminAdd.vue'
 import Adminget from '../views/admin/AdminGet.vue'
@@ -63,8 +63,8 @@ const routes = [
     component: Register
   },
   {
-    path: '/error',
-    component: Erro
+    path: '*',
+    component: error
   },
   
   

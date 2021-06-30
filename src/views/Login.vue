@@ -1,26 +1,28 @@
 <template>
-<div class="background-staff">
-  <div class="center">
-    <h1>Login</h1>
-    <form method="post" @submit.prevent="submit">
-      <div class="txt_field">
-        <input type="email" required v-model="email" />
-        <span></span>
-        <label>Email</label>
-      </div>
-      <div class="txt_field">
-        <input type="password" required v-model="password" />
-        <span></span>
-        <label>Password</label>
-      </div>
-      <div class="pass">Forgot your password?</div>
-      <input type="submit" value="Login" />
-      <div class="signup_link">
-        Not a member? <a href="/register">Signup</a>
-      </div>
-    </form>
-  </div>
-</div>
+  <body style="background: linear-gradient(#004351, #adadaf);">
+    
+  
+    <div class="center">
+      <h1>Login</h1>
+      <form @submit.prevent="submit">
+        <div class="txt_field">
+          <input type="email" required v-model="email" />
+          <span></span>
+          <label>Email</label>
+        </div>
+        <div class="txt_field">
+          <input type="password" required v-model="password" />
+          <span></span>
+          <label>Password</label>
+        </div>
+        <div class="pass">Forgot your password?</div>
+        <input type="submit" value="Login" />
+        <div class="signup_link">
+          Not a member? <a href="/register">Signup</a>
+        </div>
+      </form>
+    </div>
+  </body>
 </template>
 
 <script>
@@ -35,30 +37,28 @@ export default {
   methods: {
     submit() {
       axios
-        .post(
-          "http://localhost:3000/person",
-          {
-            email: this.email,
-            password: this.password,
-            returnSecureToken: true,
-          }
-        )
+        .get("http://localhost:3000/api/person ")
         .then((res) => {
-          this.$store.commit("setUser", res.data);
-          alert("Login with success");
-          this.$router.push("/personagens");
+          for (let i = 0; i < res.data.length; i++) {
+            if (this.email == res.data[i].email) {
+              if (this.password == res.data[i].password) {
+                this.$store.commit("setUser", res.data[i]);
+                this.$router.push("/");
+              }
+            }
+          }
         })
-        .catch((res) => {
-          alert("Login failed");
-          console.log(res);
-        });
+        .catch((res) => console.log(res));
     },
   },
-};    
+};
 </script>
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap");
+.background-staff{
+  background: linear-gradient( #004351, #ffffff);
+}
 .center {
   position: absolute;
   top: 50%;

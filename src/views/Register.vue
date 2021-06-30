@@ -1,6 +1,8 @@
 <template>
-<div class="background-staff">
-  <div class="center" style="width: 500px; position: relative;">
+<body style="background: linear-gradient(#004351, #adadaf);">
+  
+
+  <div class="center" style="width: 500px; ">
     <h1>Register</h1>
     <form method="post" @submit.prevent="submit">
       <div class="txt_field">
@@ -37,7 +39,7 @@
       <div class="signup_link" style="padding: 0 0 20px;">Member already? <a href="login">Login</a></div>
     </form>
   </div>
-</div>
+</body>
 </template>
 
 <script>
@@ -57,7 +59,7 @@ export default {
     submit() {
       axios
         .post(
-          "http://localhost:3000/person",
+          "http://localhost:3000/api/person",
           {
             email: this.email,
             password: this.password,

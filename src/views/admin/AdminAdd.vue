@@ -13,7 +13,7 @@
           <h2>Game:</h2>
           <input
             class=""
-            
+            placeholder="Insert the game name..."
             type="game"
             required
             v-model="gameName"
@@ -25,8 +25,7 @@
           <h2>Pegi:</h2>
           <input
             class="space"
-            
-            type="pegi"
+            placeholder="Insert the pegi..."
             required
             v-model="pegi"
           />
@@ -35,7 +34,7 @@
           <h2>Price:</h2>
           <input
             class="space"
-            
+            placeholder="Insert the price..."
             type="preco"
             required
             v-model="preco"
@@ -45,7 +44,7 @@
           <h2>Stock:</h2>
           <input
             class="space"
-            
+            placeholder="Insert the stock..."
             type="stock"
             required
             v-model="stock"
@@ -55,7 +54,7 @@
           <h2>Description:</h2>
           <input
             class="space"
-            
+            placeholder="Insert the description..."
             type="description"
             required
             v-model="description"
@@ -67,7 +66,7 @@
             style="height: 130px"
             type="minimum_Requirement"
             class="space"
-            
+            placeholder="Insert the minimum requirement"
             required
             v-model="minimum_Requirement"
           />
@@ -78,7 +77,7 @@
             style="height: 130px"
             type="recommended_Requirement"
             class="space"
-            
+            placeholder="Insert the recommended requirement..."
             required
             v-model="recommended_Requirement"
           />
@@ -97,7 +96,7 @@
           <input
             type="text"
             class="space"
-            
+            placeholder="url/name of the image"
             required
             v-model="image"
           />
@@ -137,18 +136,21 @@ export default {
           stock: this.stock,
           description: this.description,
           minimum_Requirement: this.minimum_Requirement,
+          recommended_Requirement: this.recommended_Requirement,
           releaseDate: this.releaseDate,
           image: this.image,
           
         })
         .then((res) => {
           console.log(res);
-          alert("User added with success");
+          alert("Game added with success");
           this.$router.push("/adminadd");
         })
         .catch((res) => {
-          alert("Error adding the user");
+          alert("Error adding the game");
+          
           console.log(res);
+          this.$router.push("/adminadd");
         });
     },
   },

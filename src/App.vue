@@ -43,14 +43,37 @@
         <router-link to="/games">Games</router-link> |
         <router-link to="/favoritos">Wishlist</router-link> |
         <router-link to="/contacts">Contacts</router-link> |
-        <router-link to="/login">Login</router-link>
+        <router-link to="/login" >Login</router-link> |
+        <router-link to="/adminget" >Admin</router-link> 
       </div>
     </div>
 
     <router-view />
   </div>
 </template>
-
+<script>
+export default {
+        data(){
+            return{
+                messageText: ''
+            }
+        },
+     props: {
+            userName: String ,
+    },
+        methods:{
+            sendMessage(){
+                this.$emit('messagesent', {
+                    message:this.messageText,
+                    user: {
+                    name: this.userName
+                            }
+                });
+                this.messageText = '';
+            }
+        }
+    }
+</script>
 <style>
 body {
   margin: 0;
@@ -60,6 +83,7 @@ body {
   font-size: 13px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 #nav {
@@ -67,7 +91,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background:#164756;;
+  background:#004351;
   text-align: center;
   color: black;
 }

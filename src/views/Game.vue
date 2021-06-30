@@ -54,8 +54,7 @@
         <div class="price">{{ data.preco }}€</div>
         <div class="swap">
           <a class="button-wishlist"></a>
-          
-          <a class="button-buybutton" href="/games" onclick="alert()">Buy</a>
+          <router-link class="button-buybutton" to="/games" onclick="alert()">Buy</router-link>
         </div>
       </div>
       <br />
@@ -84,6 +83,9 @@
 </template>
 
 <script>
+
+
+
 import axios from "axios";
 export default {
   data() {
@@ -97,7 +99,9 @@ export default {
         console.log(res.data);
         this.resultados = res.data;
       });
+      
     },
+    
   },
 
   mounted() {
@@ -106,9 +110,8 @@ export default {
 
   
 };
-
 function alert() {
-    alert("Successfully bought");
+      alert("Successfully bought");
   }
 </script>
 

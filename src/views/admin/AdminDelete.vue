@@ -7,7 +7,7 @@
       <a href="http://localhost:8080/adminupdate">Update</a>
     </div>
     <div class="box">
-      <form method="delete" @submit.prevent="submit">
+      <form method="post" @submit.prevent="submit">
         <div class="insert-info">
           <h2>Insert ID:</h2>
           <input
@@ -15,7 +15,7 @@
             style="margin: 0 30px"
             type="game_ID"
             required
-            v-model="users_ID"
+            v-model="game_ID"
           />
         </div>
 
@@ -29,23 +29,21 @@ import axios from "axios";
 export default {
   data() {
     return {
-      users_ID: "",
+      game_ID: "",
     };
   },
 
   methods: {
     submit() {
       axios
-        .delete("http://localhost:3000/person", {
-          users_ID: this.users_ID,
-        })
+        .delete("http://localhost:3000/api/game/" + this.game_ID)
         .then((res) => {
           console.log(res);
-          alert("User deleted with success");
-          this.$router.push("/admindelete");
+          alert("Game deleted with success");
+          
         })
         .catch((res) => {
-          alert("Failed deleting a user!");
+          alert("Failed deleting a game!");
           console.log(res);
         });
     },

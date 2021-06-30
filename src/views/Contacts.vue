@@ -1,6 +1,8 @@
 <template>
-<div class="background-staff">
+
+  <body style="background: linear-gradient(#004351, #adadaf);">
     
+  
   <div class="center">
     <h1>Contact</h1>
     <form method="post" @submit.prevent="submit">
@@ -25,16 +27,12 @@
       <br />
     </form>
     </div>
-  
-</div>
+</body>
 </template>
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap");
-.background-staff{
-  height: 870px;
-    background: linear-gradient(#e66465, #9198e5);
-}
+
 .center {
   position: absolute;
   top: 50%;
